@@ -12,6 +12,10 @@ RUN pip install --upgrade\
 	awscli \
 	untangle
 
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm@latest
+
 ADD http://sdkrepo.atlassian.com/deb-archive/atlassian-plugin-sdk_8.0.7_all.deb /amps.deb
 
 RUN echo "deb http://sdkrepo.atlassian.com/debian/ stable contrib" >>/etc/apt/sources.list \
